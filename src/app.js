@@ -4,6 +4,7 @@ import {Server} from "socket.io";
 import productsRouter from "./routes/products.router.js";
 import __dirname from "./utils.js";
 import viewsRouter from "./routes/views.router.js"
+import ProductManager from "../Managers/ProductManager.js";
 
 
 
@@ -11,7 +12,10 @@ import viewsRouter from "./routes/views.router.js"
 const app = express();
 const PORT = process.env.PORT || 8080; 
 const server = app.listen(PORT, ()=>{console.log(`listening on PORT ${PORT}`)});
+const pm = new ProductManager();
 
+// Server de sockets:
+const io = new Server(server);
 
 
 
@@ -26,11 +30,11 @@ app.set("views", `${__dirname}/views`);
 app.set("view engine", "handlebars");
 
 
-
-app.use((req, res, next)=>{
-    req.id = "Charlie"
+// midleware IO
+app.use((req, res, next) => {
+    req.io = io;
     next();
-})
+});
 
 //routers
 app.use("/api/products", productsRouter);
@@ -38,8 +42,9 @@ app.use("/", viewsRouter);
 
 
 
-app.get("/", (req, res)=>{
-    console.log(req.id)
-    res.send({status:"ok", message:`bienvenido de nuevo ${req.id}` });
-    
-})
+io.on(`connection`, async socket => {
+    console.log("nuevo cliente conectado");
+    socket.on(`click`, data =>{       
+        socket.emit("sendProducts", products)
+    });
+});

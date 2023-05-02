@@ -58,6 +58,13 @@ router.delete("/:pid", (req, res) => {
     res.send({status:"ok", message:"producto borrado correctamente"})
 } )
 
+router.post("/realtimeproducts", async (req, res) => {
+    const product = req.body;
+    
+    await pm.addProduct(product);    
+    const products = await pm.getProducts();
+    req.io.emit("products", {products});
+})
 
 
 export default router

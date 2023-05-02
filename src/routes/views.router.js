@@ -11,4 +11,12 @@ router.get("/products", async (req, res) => {
 })
 
 
+router.get("/realtimeproducts", async (req, res) => {    
+
+    res.render("realtimeproducts");
+})
+
+
+
+
 export default router;
