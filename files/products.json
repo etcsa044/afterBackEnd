@@ -1,59 +1,5 @@
 [
 	{
-		"title": "prueba de producto en tiempo real 19",
-		"description": "Este es un producto posteado desde Postman",
-		"price": 19.99,
-		"thumbnail": "imagenPostman.jpg",
-		"code": 58,
-		"stock": 10,
-		"category": "realTimeProduct",
-		"status": true
-	},
-	{
-		"title": "prueba de producto en tiempo real 19",
-		"description": "Este es un producto posteado desde Postman",
-		"price": 19.99,
-		"thumbnail": "imagenPostman.jpg",
-		"code": 59,
-		"stock": 10,
-		"category": "realTimeProduct",
-		"status": true,
-		"id": null
-	},
-	{
-		"title": "prueba de producto en tiempo real 19",
-		"description": "Este es un producto posteado desde Postman",
-		"price": 19.99,
-		"thumbnail": "imagenPostman.jpg",
-		"code": 60,
-		"stock": 10,
-		"category": "realTimeProduct",
-		"status": true,
-		"id": 1
-	},
-	{
-		"title": "prueba de producto en tiempo real 19",
-		"description": "Este es un producto posteado desde Postman",
-		"price": 19.99,
-		"thumbnail": "imagenPostman.jpg",
-		"code": 61,
-		"stock": 10,
-		"category": "realTimeProduct",
-		"status": true,
-		"id": 2
-	},
-	{
-		"title": "prueba de producto en tiempo real 19",
-		"description": "Este es un producto posteado desde Postman",
-		"price": 19.99,
-		"thumbnail": "imagenPostman.jpg",
-		"code": 62,
-		"stock": 10,
-		"category": "realTimeProduct",
-		"status": true,
-		"id": 3
-	},
-	{
 		"title": "prueba de producto en tiempo real 20",
 		"description": "Este es un producto posteado desde Postman",
 		"price": 19.99,
@@ -69,21 +15,131 @@
 		"description": "Este es un producto posteado desde Postman",
 		"price": 19.99,
 		"thumbnail": "imagenPostman.jpg",
-		"code": 64,
-		"stock": 10,
-		"category": "realTimeProduct",
-		"status": true,
-		"id": 5
-	},
-	{
-		"title": "prueba de producto en tiempo real 21",
-		"description": "Este es un producto posteado desde Postman",
-		"price": 19.99,
-		"thumbnail": "imagenPostman.jpg",
 		"code": 65,
 		"stock": 10,
 		"category": "realTimeProduct",
 		"status": true,
 		"id": 6
+	},
+	{
+		"title": "prueba de producto en tiempo real 23",
+		"description": "Este es un producto posteado desde Postman",
+		"price": 19.99,
+		"thumbnail": "imagenPostman.jpg",
+		"code": 67,
+		"stock": 10,
+		"category": "realTimeProduct",
+		"status": true,
+		"id": 8
+	},
+	{
+		"title": "prueba de producto en tiempo real 24",
+		"description": "Este es un producto posteado desde Postman",
+		"price": 19.99,
+		"thumbnail": "imagenPostman.jpg",
+		"code": 69,
+		"stock": 10,
+		"category": "realTimeProduct",
+		"status": true,
+		"id": 10
+	},
+	{
+		"title": "prueba de producto en tiempo real 70",
+		"description": "Este es un producto posteado desde Postman",
+		"price": 19.99,
+		"thumbnail": "imagenPostman.jpg",
+		"code": 70,
+		"stock": 10,
+		"category": "realTimeProduct",
+		"status": true,
+		"id": 11
+	},
+	{
+		"title": "prueba de producto en tiempo real 73",
+		"description": "Este es un producto posteado desde Postman",
+		"price": 19.99,
+		"thumbnail": "imagenPostman.jpg",
+		"code": 73,
+		"stock": 10,
+		"category": "realTimeProduct",
+		"status": true,
+		"id": 14
+	},
+	{
+		"title": "prueba de producto en tiempo real 75",
+		"description": "Este es un producto posteado desde Postman",
+		"price": 19.99,
+		"thumbnail": "imagenPostman.jpg",
+		"code": 75,
+		"stock": 10,
+		"category": "realTimeProduct",
+		"status": true,
+		"id": 16
+	},
+	{
+		"title": "producto 77 no rtp",
+		"description": "Producto Creado de prueba",
+		"price": 59.99,
+		"thumbnail": "imagenPostman.jpg",
+		"code": 78,
+		"stock": 10,
+		"category": "Product",
+		"status": true,
+		"id": 19
+	},
+	{
+		"title": "producto 80 no rtp con Code alfanumerico",
+		"description": "Producto Creado de prueba",
+		"price": 59.99,
+		"thumbnail": "imagenPostman.jpg",
+		"code": "a80",
+		"stock": 10,
+		"category": "Product",
+		"status": true,
+		"id": 22
+	},
+	{
+		"title": "prueba de producto en tiempo real 79",
+		"description": "Este es un producto posteado desde Postman",
+		"price": 19.99,
+		"thumbnail": "imagenPostman.jpg",
+		"code": "a81",
+		"stock": 10,
+		"category": "realTimeProduct",
+		"status": true,
+		"id": 23
+	},
+	{
+		"title": "prueba de producto en tiempo real 79",
+		"description": "Este es un producto posteado desde Postman",
+		"price": 19.99,
+		"thumbnail": "imagenPostman.jpg",
+		"code": "a82",
+		"stock": 10,
+		"category": "realTimeProduct",
+		"status": true,
+		"id": 24
+	},
+	{
+		"title": "prueba de producto en tiempo real 79",
+		"description": "Este es un producto posteado desde Postman",
+		"price": 19.99,
+		"thumbnail": "imagenPostman.jpg",
+		"code": "a83",
+		"stock": 10,
+		"category": "realTimeProduct",
+		"status": true,
+		"id": 25
+	},
+	{
+		"title": "prueba de producto en tiempo real 84",
+		"description": "Este es un producto posteado desde Postman",
+		"price": 19.99,
+		"thumbnail": "imagenPostman.jpg",
+		"code": "a84",
+		"stock": 10,
+		"category": "realTimeProduct",
+		"status": true,
+		"id": 26
 	}
 ]

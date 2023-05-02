@@ -44,7 +44,7 @@ app.use("/", viewsRouter);
 
 io.on(`connection`, async socket => {
     console.log("nuevo cliente conectado");
-    socket.on(`click`, data =>{       
-        socket.emit("sendProducts", products)
-    });
+    // socket.on(`click`, data =>{       
+    //     socket.emit("sendProducts", products)
+    // });
 });

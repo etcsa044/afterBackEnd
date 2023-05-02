@@ -36,6 +36,8 @@ addProduct = async (products) => {
 
 
 // PUT
+
+
 // DELETE:
 deleteProduct = async (id)=>{
     const products = await this.getProducts();
