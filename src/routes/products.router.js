@@ -119,6 +119,8 @@ router.post("/realtimeproducts", autoId, async (req, res) => {
 // DELETE: Borra productos y refresca el listado en TIempo real:
 
 router.delete("/realtimeproducts/:pid", async (req, res) => {
+    
+    console.log(req.headers);
     const products = await pm.getProducts();
     let {
         pid
@@ -127,17 +129,14 @@ router.delete("/realtimeproducts/:pid", async (req, res) => {
 
     const existId = products.some(e => e.id === pid);
     if(!existId){
-        res.send({status:"error", message:"El Id no existe"})
+        res.send(400, {message:"Id no encontrado"});
         return
     }
 
     await pm.deleteProduct(pid);
     const UpdatedProducts = await pm.getProducts();
     req.io.emit("products", UpdatedProducts);
-    res.send({
-        status: "ok",
-        message: "Producto Borrado en `Real Time`"
-    });
+    res.status(200).send("Poducto Borrado Satisfactoriamente");
 
 });
 
