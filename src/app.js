@@ -2,9 +2,9 @@ import express from "express";
 import handlebars from "express-handlebars";
 import {Server} from "socket.io";
 import productsRouter from "./routes/products.router.js";
-import __dirname from "./utils.js";
+import __dirname, { connection } from "./utils/utils.js";
 import viewsRouter from "./routes/views.router.js"
-import ProductManager from "../Managers/ProductManager.js";
+import mongoose from "mongoose";
 
 
 
@@ -12,12 +12,13 @@ import ProductManager from "../Managers/ProductManager.js";
 const app = express();
 const PORT = process.env.PORT || 8080; 
 const server = app.listen(PORT, ()=>{console.log(`listening on PORT ${PORT}`)});
-const pm = new ProductManager();
+
+// MongoDB:
+mongoose.connect(connection)
+
 
 // Server de sockets:
 const io = new Server(server);
-
-
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));

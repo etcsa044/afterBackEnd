@@ -1,6 +1,6 @@
 import {fileURLToPath} from 'url';
 import { dirname } from 'path';
-import ProductManager from '../Managers/ProductManager.js';
+import ProductManager from '../../Dao/Managers/ProductManager.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,7 +20,8 @@ export const autoId = async (req, res, next)=>{
     next()
 }
 
-
+//String de Conexión
+export const connection = "mongodb+srv://etcsa044:uCdeI4OXFqA9lN9Z@backendcluster.h3wtkp9.mongodb.net/ecommerce?retryWrites=true&w=majority"
 
 
 export default __dirname;
