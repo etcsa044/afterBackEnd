@@ -3,7 +3,7 @@ import handlebars from "express-handlebars";
 import {Server} from "socket.io";
 import productsRouter from "./routes/products.router.js";
 import cartsRouter from "./routes/carts.router.js";
-import __dirname, { connection } from "./utils/utils.js";
+import {__src, __root, connection } from "./utils/utils.js";
 import viewsRouter from "./routes/views.router.js"
 import mongoose from "mongoose";
 
@@ -23,13 +23,13 @@ const io = new Server(server);
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(express.static(`${__dirname}/public`));
+app.use(express.static(`${__src}/public`));
 
 
 // handlebars:
 app.engine("handlebars", handlebars.engine());
-app.set("views", `${__dirname}/views`);
-app.set("view engine", "handlebars");
+app.set("views", `${__src}/views`);
+app.set("view engine", "handlebars" );
 
 
 // midleware IO

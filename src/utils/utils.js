@@ -3,7 +3,8 @@ import { dirname } from 'path';
 import ProductManager from '../../Dao/fileSystem/ProductManager.js';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __src = dirname(dirname(__filename))
+const __root = dirname(dirname(dirname(__filename)));
 
 const pm = new ProductManager();
 
@@ -24,4 +25,4 @@ export const autoId = async (req, res, next)=>{
 export const connection = "mongodb+srv://etcsa044:uCdeI4OXFqA9lN9Z@backendcluster.h3wtkp9.mongodb.net/ecommerce?retryWrites=true&w=majority"
 
 
-export default __dirname;
+export {__src, __root};

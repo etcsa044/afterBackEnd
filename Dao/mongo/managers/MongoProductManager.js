@@ -6,12 +6,12 @@ import productModel from "../models/products.js"
 export default class MongoProductManager {
 
     getProducts = async () => {
-        const products = await productModel.find()
+        const products = await productModel.find().lean()
         return products
     }
 
     getProductById = async (id) => {
-            const product = await productModel.findById(id);
+            const product = await productModel.findById(id).lean();
             return product;        
     }
 
