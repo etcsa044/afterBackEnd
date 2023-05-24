@@ -1,11 +1,11 @@
 import {
     Router
 } from "express";
-import ProductManager from "../../Dao/Managers/ProductManager.js";
+import ProductManager from "../../Dao/fileSystem/ProductManager.js";
 import {
     autoId
 } from "../utils/utils.js";
-import MongoProductManager from "../../Dao/Managers/MongoProductManager.js";
+import MongoProductManager from "../../Dao/mongo/managers/MongoProductManager.js";
 
 
 

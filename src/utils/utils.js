@@ -1,6 +1,6 @@
 import {fileURLToPath} from 'url';
 import { dirname } from 'path';
-import ProductManager from '../../Dao/Managers/ProductManager.js';
+import ProductManager from '../../Dao/fileSystem/ProductManager.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
