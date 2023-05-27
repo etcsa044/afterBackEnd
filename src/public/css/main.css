@@ -1,0 +1,10 @@
+
+
+#logsContainer{
+    background-color: black;
+    color: gainsboro;
+    margin: 25px, auto;
+    overflow:scroll;
+    width: 50%;
+    height: 300px;
+}

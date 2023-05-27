@@ -5,7 +5,8 @@ const collection = "products";
 const schema = new mongoose.Schema({
     title:{
         type: String,
-        required:true   
+        required:true,
+        index: true   
     },
     description:{
         type: String,
@@ -13,7 +14,8 @@ const schema = new mongoose.Schema({
     },
     category:{
         type: String,
-        required:true   
+        required:true,
+        index: true   
     },
     thumbnail:{
         type: Array,
@@ -21,7 +23,8 @@ const schema = new mongoose.Schema({
     },
     code:{
         type:String,
-        unique:true
+        unique:true,
+        index: true
     },
     price:{
         type: Number,
