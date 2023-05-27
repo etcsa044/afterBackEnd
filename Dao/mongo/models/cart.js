@@ -9,6 +9,10 @@ const schema = new mongoose.Schema({
                 product:{
                     type:mongoose.SchemaTypes.ObjectId,
                     ref:"products"
+                },
+                quantity:{
+                    type:Number,
+                    default:1            
                 }
             }
         ],

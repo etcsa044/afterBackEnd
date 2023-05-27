@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import cartModel from "../models/cart.js";
 import productModel from "../models/products.js";
 
@@ -5,11 +6,11 @@ import productModel from "../models/products.js";
 export default class MongoCartManager {
 
     getCarts = () => {
-        return cartModel.find().lean();
+        return cartModel.find().populate("products.product").lean();
     }
 
     getCartBy = (param) => {
-        return cartModel.findOne(param).lean();
+        return cartModel.findOne(param).populate("products.product").lean();
     }
 
     createCart = (cart) => {
@@ -24,10 +25,12 @@ export default class MongoCartManager {
         return cartModel.findByIdAndDelete(id);
     }
 
-    addProductToCart = (cartId, productId) =>{
-        const cart = this.getCartBy(cartId);
-        const product = productModel.findById(productId)
+    addProductToCart = (id, pid)=>{
+
+        return cartModel.updateOne({_id:id}, {$push:{products:{product : new mongoose.Types.ObjectId(pid), quantity:1}}})
 
     }
+
+   
 
 } //fin de la clase
