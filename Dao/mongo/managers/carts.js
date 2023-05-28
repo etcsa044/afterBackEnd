@@ -25,12 +25,18 @@ export default class MongoCartManager {
         return cartModel.findByIdAndDelete(id);
     }
 
-    addProductToCart = (id, pid)=>{
-
-        return cartModel.updateOne({_id:id}, {$push:{products:{product : new mongoose.Types.ObjectId(pid), quantity:1}}})
-
+    addProductToCart = (id, pid) => {
+        return cartModel.updateOne({ _id: id }, { $push: { products: { product: new mongoose.Types.ObjectId(pid), quantity: 1 } } })
     }
 
-   
+    modifyQuantity = (cid, pid) => {
+         return cartModel.findOneAndUpdate(
+          { _id: cid, 'products.product': pid },
+          { $inc: { 'products.$.quantity': 1 } },
+          { new: true }
+        );
+      };
+
+
 
 } //fin de la clase
