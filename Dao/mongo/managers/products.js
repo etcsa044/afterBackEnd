@@ -15,7 +15,7 @@ export default class MongoProductManager {
             return product;        
     }
 
-    addProduct = async (product) => {
+    addProduct = (product) => {
             return productModel.create(product);        
     }
 
@@ -25,5 +25,9 @@ export default class MongoProductManager {
 
     deleteProduct = async (id) => {
         return productModel.findByIdAndDelete(id);
+    }
+
+    createMany = async (products)=>{
+        return productModel.insertMany(products);
     }
 }

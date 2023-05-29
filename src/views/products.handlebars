@@ -1,7 +1,16 @@
 <h1 id="h1">Productos almacenados</h1>
 <ul>
     {{#each prod}}
-    <li>{{this.title}}, {{this.description}}, {{this.price}}</li>
+    <li class="cart_container">
+        <article class="card">
+            <h4>{{this.title}}</h4>
+            <p>
+                {{this.description}}
+            </p>
+            <p>$ {{this.price}}</p>
+            <button class="add_btn" onclick="saludo('{{this.price}}')">Agregar al carrito</button>
+        </article>
+    </li>
     {{/each}}
 </ul>
 

@@ -53,46 +53,53 @@ router.put("/:cid", async (req, res) => {
     }
 })
 
-router.delete("/:cid", async (req, res) => {
-    const { cid } = req.params;
-    try {
+// router.delete("/:cid", async (req, res) => {
+//     const { cid } = req.params;
+//     try {
 
-        const result = await cartManager.deleteCart(cid)
-        res.sendStatus(200)
-    } catch (error) {
-        res.send({ status: "Error", error: "Cart NOT found" })
-    }
+//         const result = await cartManager.deleteCart(cid)
+//         res.sendStatus(200)
+//     } catch (error) {
+//         res.send({ status: "Error", error: "Cart NOT found" })
+//     }
 
-})
+// })
 
-router.put("/:cid/:pid", async (req, res) => {
+router.put("/:cid/products/:pid", async (req, res) => {
 
     const { pid, cid } = req.params;
+    const {quantity} = req.body
+    console.log(quantity)
     const productId = await pm.getProductById(pid);
     const cart = await cartManager.updateCart(cid);
 
     const exist = cart.products.some(product => product.product._id.toString() === pid);
-  
 
-    try {        
-        if (!exist) {
+    if (!exist) {
+        try {
             await cartManager.addProductToCart(cid, productId._id);
-            res.sendStatus(200);
-            return;
-        }else{
-            await cartManager.modifyQuantity(cid, pid);
+            res.send({status:"Success", payload:"Producto Agregado Correctamente"});
+        } catch (error) {
+            res.send({ status: "Error", message: "Verifique el Id ingresado" })
         }
-
-        res.sendStatus(200);
-
-
-    } catch (error) {
-        console.log(error)
-        res.send({ status: "Error", error: "Cart NOT found" })
+    } else {
+        try {
+            await cartManager.modifyQuantity(cid, pid, quantity);
+            res.send({status:"Success", payload:"Cantidad Actualizada Correctamente"});
+        } catch (error) {
+            res.send({ status: "Error", message: "Verifique el Id ingresado" })
+        }
     }
+})
 
-
-
+router.delete("/:cid", async (req, res) =>{
+    const {cid} = req.params;
+    try {        
+        await cartManager.removeProducts(cid);
+        res.send({status:"Succes", payload:"Se removieron todos los productos"})
+    } catch (error) {
+        res.send(error)
+    }
 
 })
 
