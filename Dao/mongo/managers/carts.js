@@ -5,7 +5,7 @@ import cartModel from "../models/cart.js";
 export default class MongoCartManager {
 
     getCarts = () => {
-        return cartModel.find().populate("products.product").lean();
+        return cartModel.find().lean();
     }
 
     getCartBy = (param) => {

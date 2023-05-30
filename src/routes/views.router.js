@@ -20,9 +20,9 @@ router.get("/realtimeproducts", async (req, res) => {
 })
 
 router.get("/carts", async (req, res) => {
-    const cartManager = new MongoCartManager()
-    const carts = await cartManager.getCarts()
-
+    const cartManager = new MongoCartManager();
+    const carts = await cartManager.getCarts();
+    console.log(JSON.stringify(carts, null, `\t`))
     res.render("carts", {carts : carts})
 })
 

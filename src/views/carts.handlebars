@@ -1,10 +1,15 @@
 <h1>Listado de Carritos</h1>
 
 <section>
-    {{#each carts}}
+  {{#each carts}}
     <article>
-        {{this._id}}
-        {{this.products}}
+      <p>Id del Carrito: {{this._id}}</p>
+      {{#each this.products}}
+        <p>{{this.product.title}}</p>
+        <p>{{this.product.description}}</p>
+        <p>$ {{this.product.price}}</p><!-- Agrega más propiedades del producto según tus necesidades -->
+      {{/each}}
     </article>
-    {{/each}}
+  {{/each}}
 </section>
+
