@@ -69,7 +69,7 @@ router.put("/:cid/products/:pid", async (req, res) => {
 
     const { pid, cid } = req.params;
     const {quantity} = req.body
-    console.log(quantity)
+    console.log(req.params)
     const productId = await pm.getProductById(pid);
     const cart = await cartManager.updateCart(cid);
 
