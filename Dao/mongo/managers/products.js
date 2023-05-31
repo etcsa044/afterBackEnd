@@ -5,8 +5,8 @@ import productModel from "../models/products.js"
 
 export default class MongoProductManager {
 
-    getProducts = async () => {
-        const products = await productModel.find().lean()
+    getProducts = async (page) => {
+        const products = await productModel.paginate({}, {page, limit:2, lean:true})
         return products
     }
 
@@ -23,11 +23,11 @@ export default class MongoProductManager {
         return productModel.findByIdAndUpdate(id,product)
     }
 
-    deleteProduct = async (id) => {
+    deleteProduct = (id) => {
         return productModel.findByIdAndDelete(id);
     }
 
-    createMany = async (products)=>{
+    createMany = (products)=>{
         return productModel.insertMany(products);
     }
 }

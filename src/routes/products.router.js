@@ -79,6 +79,19 @@ router.post("/", async (req, res) => {
     }
 })
 
+router.post("/many", async(res, req)=>{
+    console.log("llega");
+    // try {
+    //     const products = req.body;
+    // await mongoPm.createMany(products);
+    // res.sendStatus(200)
+    // } catch (error) {
+    //     console.log(error)
+    //     res.sendStatus(500)
+    // }
+    
+})
+
 // ********** DELETE *********** //
 
 router.delete("/:pid", async (req, res) => {

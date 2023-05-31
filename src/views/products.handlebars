@@ -1,6 +1,6 @@
 <h1 id="h1">Productos almacenados</h1>
 <ul>
-    {{#each prod}}
+    {{#each products}}
     <li class="cart_container">
         <article class="card">
             <h4>{{this.title}}</h4>
@@ -12,6 +12,18 @@
         </article>
     </li>
     {{/each}}
+    {{#if hasPrevPage}}
+        <a href="/products/?page={{prevPage}}">Anterior</a>
+    {{/if}}
+
+    {{#if page}}
+        {{page}}
+    {{/if}}
+
+
+    {{#if hasNextPage}}
+        <a href="/products/?page={{nextPage}}">Siguiente</a>
+    {{/if}}
 </ul>
 
 

@@ -10,8 +10,14 @@ router.get("/", async (req,res)=>{
 })
 
 router.get("/products", async (req, res) => {
-    const products = await pm.getProducts();
-    res.render("products", {prod : products})
+
+    const {page = 1} = req.query;
+
+    const {docs, hasPrevPage, hasNextPage, prevPage, nextPage, ...rest} = await pm.getProducts(page);
+    
+    const products = docs;
+    
+    res.render("products", {products, page:rest.page, hasPrevPage, hasNextPage, prevPage, nextPage})
 })
 
 
