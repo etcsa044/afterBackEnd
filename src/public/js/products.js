@@ -14,7 +14,6 @@ for (let i = 0; i <= add_frm.length; i++) {
         
         const pid = prod.id
         const cid = "646e6f33a94663109938a5da"
-        console.log(pid)
 
         await fetch(`/api/carts/${cid}/products/${pid}`,{
             method:"PUT",
