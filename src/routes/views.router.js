@@ -11,13 +11,15 @@ router.get("/", async (req,res)=>{
 
 router.get("/products", async (req, res) => {
 
-    const {page = 1} = req.query;
+    const {page=1,limit=10} = req.query;
 
-    const {docs, hasPrevPage, hasNextPage, prevPage, nextPage, ...rest} = await pm.getProducts(page);
+    console.log(`page: ${page}, limit: ${limit}`)
+
+    const {docs, hasPrevPage, hasNextPage, prevPage, nextPage, ...rest} = await pm.getProducts(page, limit);
     
-    const products = docs;
+    console.log(docs)
     
-    res.render("products", {products, page:rest.page, hasPrevPage, hasNextPage, prevPage, nextPage})
+    res.render("products", {docs, page:rest.page, hasPrevPage, hasNextPage, prevPage, nextPage, limit})
 })
 
 

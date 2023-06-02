@@ -5,8 +5,11 @@ import productModel from "../models/products.js"
 
 export default class MongoProductManager {
 
-    getProducts = async (limit, page) => {
-        const products = await productModel.paginate({}, {page:page, limit:limit, lean:true})
+    getProducts = async (page=1, limit=0) => {
+        const products = await productModel.paginate({}, {page,limit, lean:true})
+
+        console.log(`limit: ${limit}, page: ${page}`)
+
         return products
     }
 

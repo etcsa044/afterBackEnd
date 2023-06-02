@@ -44,6 +44,9 @@ router.get("/:pid", async (req, res) => {
 router.post("/", async (req, res) => {
 
     const products = await mongoPm.getProducts()
+
+    console.log(products.docs)
+
     const { title, description, category, thumbnail, code, price, stock, status } = req.body
 
     // validacion de campos completos
@@ -64,7 +67,9 @@ router.post("/", async (req, res) => {
 
     //validación de "code" existente:
 
-    const validationCode = products.some(e => e.code === product.code);
+    const validationCode = products.docs.some(e => e.code === product.code);
+
+    console.log(validationCode)
 
     if (validationCode) {
         res.send({
@@ -82,7 +87,6 @@ router.post("/", async (req, res) => {
 })
 
 router.post("/many", async(res, req)=>{
-    console.log("llega");
     // try {
     //     const products = req.body;
     // await mongoPm.createMany(products);
