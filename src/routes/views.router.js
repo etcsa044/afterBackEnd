@@ -4,6 +4,7 @@ import MongoProductManager from "../../Dao/mongo/managers/products.js";
 
 const router = Router();
 const pm = new MongoProductManager();
+const cartManager = new MongoCartManager();
 
 router.get("/", async (req, res) => {
     res.render("index")
@@ -20,11 +21,15 @@ router.get("/realtimeproducts", async (req, res) => {
     res.render("realtimeproducts");
 })
 
-router.get("/carts", async (req, res) => {
-    const cartManager = new MongoCartManager();
-    const carts = await cartManager.getCarts();
-    console.log(JSON.stringify(carts, null, `\t`))
-    res.render("carts", { carts: carts })
+router.get("/cart/:cid", async (req, res) => {
+    const { cid } = req.params
+    try {
+        const cart = await cartManager.getCartBy(cid);
+        res.render("cart", { cart: cart })
+    } catch (error) {
+        res.render("error")
+    }
+
 })
 
 router.get("/chat", async (req, res) => {

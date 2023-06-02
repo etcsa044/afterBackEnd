@@ -9,7 +9,7 @@ export default class MongoCartManager {
     }
 
     getCartBy = (param) => {
-        return cartModel.findOne(param).populate("products.product").lean();
+        return cartModel.findById(param).populate("products.product").lean();
     }
 
     createCart = (cart) => {
