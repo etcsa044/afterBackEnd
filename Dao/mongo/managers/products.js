@@ -7,9 +7,6 @@ export default class MongoProductManager {
 
     getProducts = async (page=1, limit=0) => {
         const products = await productModel.paginate({}, {page,limit, lean:true})
-
-        console.log(`limit: ${limit}, page: ${page}`)
-
         return products
     }
 
