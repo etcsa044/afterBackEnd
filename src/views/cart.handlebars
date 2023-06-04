@@ -1,3 +1,7 @@
+<body>
+  
+<main id="cart_main">
+
 <h1>Carrito:{{cart._id}}</h1>
 
 
@@ -6,8 +10,18 @@
   <article>
     <h4>{{this.product.title}}</h4>
     <p>{{this.product.description}}</p>
-    <p>precio: ${{this.product.price}}</p><!-- Agrega más propiedades del producto según tus necesidades -->
+    <p>precio: ${{this.product.price}}</p>
+    <p>cantidad {{this.quantity}}</p>
+
+  <form id="frm_eliminar">
+    <input class="input_eliminar" type="text" name="id" value="{{this.product._id}}" hidden="true">
+    <input class="btn_eliminar" type="submit" value="eliminar">
+  </form>
   </article>
   {{/each}}
-  <button> confirmar compra</button>
 </section>
+  <button id="btn_confirmar"> confirmar compra</button>
+</main>
+
+<script src="/js/cart.js"></script>
+</body>

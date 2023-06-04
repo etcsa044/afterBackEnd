@@ -1,4 +1,8 @@
 
+#cart_main{
+    text-align: center;
+}
+
 
 #logsContainer{
     background-color: black;
@@ -20,10 +24,13 @@
 }
 
 .product_container article{
-    height: 200px;
     text-align: center;
     width: 200px;
     border: 2px solid black;
     background-color: rgb(59, 57, 57);
     color: white;
+}
+
+#btn_confirmar{
+    margin: 15px auto;
 }

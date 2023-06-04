@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
         const {limit, page} = req.query;
         console.log(limit, page)
         const products = await mongoPm.getProducts(limit, page)
-        res.send({ status: "success", payload: products })
+        res.send({ status: "success", payload: products})
     } catch (error) {
         res.send({ status: "error", error: error })
     }

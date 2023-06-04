@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 router.get("/products", async (req, res) => {
     const { page = 1, limit = 10 } = req.query;
     const { docs, hasPrevPage, hasNextPage, prevPage, nextPage, ...rest } = await pm.getProducts(page, limit);
-    res.render("products", { docs, page: rest.page, hasPrevPage, hasNextPage, prevPage, nextPage, limit })
+    res.render("products", { docs, page: rest.page, hasPrevPage, hasNextPage, prevPage, nextPage, limit, user:req.session.user  })
 })
 
 
@@ -34,6 +34,15 @@ router.get("/cart/:cid", async (req, res) => {
 
 router.get("/chat", async (req, res) => {
     res.render("chat")
+})
+
+
+router.get("/register", async (req, res)=>{
+    res.render("register");
+})
+
+router.get("/login", async (req,res)=>{
+    res.render("login");
 })
 
 

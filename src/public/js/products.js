@@ -28,5 +28,3 @@ for (let i = 0; i <= add_frm.length; i++) {
 
 
 
-
-// Buenas, lo tenes que poner en un formulario que haga un post a la ruta de agregar al carrito, podes poner inputs que sean de type hidden, esto significa que van a ser invisibles, no se van a ver, y a cada input le pones el name que necesita por ejemplo name=Price y de value le pasas el precio del producto
