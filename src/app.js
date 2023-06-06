@@ -36,7 +36,7 @@ app.use(session({
     }),
     secret: "charlieBack3nd",
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false
 }))
 
 // handlebars:

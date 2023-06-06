@@ -1,6 +1,8 @@
 import { Router } from "express";
 import MongoCartManager from "../../Dao/mongo/managers/carts.js";
 import MongoProductManager from "../../Dao/mongo/managers/products.js";
+import { privacy } from "../middlewares/auth.js";
+
 
 const router = Router();
 const pm = new MongoProductManager();
@@ -10,18 +12,18 @@ router.get("/", async (req, res) => {
     res.render("index")
 })
 
-router.get("/products", async (req, res) => {
+router.get("/products", privacy("PRIVATE"), async (req, res) => {
     const { page = 1, limit = 10 } = req.query;
     const { docs, hasPrevPage, hasNextPage, prevPage, nextPage, ...rest } = await pm.getProducts(page, limit);
-    res.render("products", { docs, page: rest.page, hasPrevPage, hasNextPage, prevPage, nextPage, limit, user:req.session.user  })
+    res.render("products", { docs, page: rest.page, hasPrevPage, hasNextPage, prevPage, nextPage, limit, user: req.session.user })
 })
 
 
-router.get("/realtimeproducts", async (req, res) => {
+router.get("/realtimeproducts", privacy("PRIVATE"), async (req, res) => {
     res.render("realtimeproducts");
 })
 
-router.get("/cart/:cid", async (req, res) => {
+router.get("/cart/:cid", privacy("PRIVATE"), async (req, res) => {
     const { cid } = req.params
     try {
         const cart = await cartManager.getCartBy(cid);
@@ -32,16 +34,16 @@ router.get("/cart/:cid", async (req, res) => {
 
 })
 
-router.get("/chat", async (req, res) => {
+router.get("/chat", privacy("PRIVATE"), async (req, res) => {
     res.render("chat")
 })
 
 
-router.get("/register", async (req, res)=>{
+router.get("/register", privacy("NO_AUTHENTICATED"), async (req, res) => {
     res.render("register");
 })
 
-router.get("/login", async (req,res)=>{
+router.get("/login", privacy("NO_AUTHENTICATED"), async (req, res) => {
     res.render("login");
 })
 

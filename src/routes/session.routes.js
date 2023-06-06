@@ -18,9 +18,17 @@ router.post("/register", async (req,res)=>{
 
 router.post("/login", async (req, res)=>{
     const {email, password} = req.body;
-    console.log(email, password)
+
+    if(email === "adminCoder@coder.com" && password === "coder123"){
+        req.session.user = {
+            name: `SuperAdmin`,
+            email: "...",
+            role : "admin"
+        }
+        return res.sendStatus(200);
+    };
+
     const user = await userModel.findOne({email,password});
-    console.log(user)
     if(!user) return res.status(400).send({status:"error", error:"Credenciales incorrectas"});
 
     req.session.user = {
