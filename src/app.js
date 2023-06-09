@@ -11,6 +11,8 @@ import sessionsRouter from "./routes/session.routes.js";
 import { __src, __root, connection } from "./utils/utils.js";
 import registerChatHandler from "./listeners/chatHandler.js";
 import registerRtmHandler from "./listeners/rtpHandler.js";
+import passport from "passport";
+import initializePassportStrategies from "./config/passport.config.js";
 
 
 const app = express();
@@ -50,6 +52,10 @@ app.use((req, res, next) => {
     req.io = io;
     next();
 });
+
+//midleware Passport:
+app.use(passport.initialize());
+initializePassportStrategies();
 
 //routers
 app.use("/api/carts", cartsRouter);

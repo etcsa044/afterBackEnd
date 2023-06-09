@@ -1,6 +1,15 @@
 import {fileURLToPath} from 'url';
 import { dirname } from 'path';
 import ProductManager from '../../Dao/fileSystem/ProductManager.js';
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+
+
+export const generateToken = (user =>{
+    const token = jwt.sign({user}, "jwtSecret", {expiresIn:"24h"});
+    return token;
+})
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __src = dirname(dirname(__filename))
@@ -26,3 +35,20 @@ export const connection = "mongodb+srv://etcsa044:uCdeI4OXFqA9lN9Z@backendcluste
 
 
 export {__src, __root};
+
+
+//hash de password:
+
+export const createHash = async (password) => {
+
+    const salts = await bcrypt.genSalt(10);
+    return bcrypt.hash(password, salts);
+
+} 
+
+export const validatePassword = (password, hashedPassword) => {
+    return bcrypt.compare(password, hashedPassword)
+}
+
+
+//JWT

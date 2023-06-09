@@ -47,5 +47,15 @@ router.get("/login", privacy("NO_AUTHENTICATED"), async (req, res) => {
     res.render("login");
 })
 
+router.get("/restorepassword", privacy("NO_AUTHENTICATED"), async(req, res)=>{
+    console.log(req.body)
+    res.render("restorepassword");
+})
+
+router.get("/maxattempts", async (req, res)=>{
+    res.render("maxattempts");
+})
+
+
 
 export default router;
