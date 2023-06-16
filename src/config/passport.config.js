@@ -77,16 +77,15 @@ const initializePassportStrategies = () => {
           const user = await userModel.findOne({ email });
           
           if(!user) {
-            //No existe? lo creo entonces.
             const newUser =  {
               first_name: name,
-              email,
+              last_name : "",
+              email : `${name}@github.com`,
               password:''
             }
             const result = await userModel.create(newUser);
             return done(null, result);
         }
-          //Si el usuario ya existía, Qué mejor!!! 
           done(null,user);
         } catch (error) {
           done(error);

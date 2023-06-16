@@ -4,11 +4,12 @@ import ProductManager from '../../Dao/fileSystem/ProductManager.js';
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+// Codigo comentado por estar usando Express-Session 
 
-export const generateToken = (user =>{
-    const token = jwt.sign({user}, "jwtSecret", {expiresIn:"24h"});
-    return token;
-})
+// export const generateToken = (user =>{
+//     const token = jwt.sign({user}, "jwtSecret", {expiresIn:"24h"});
+//     return token;
+// })
 
 
 const __filename = fileURLToPath(import.meta.url);

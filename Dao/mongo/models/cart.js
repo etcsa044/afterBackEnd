@@ -30,4 +30,5 @@ schema.pre("find",function(){
 
 const cartModel = mongoose.model(collection, schema);
 
+
 export default cartModel;

@@ -75,6 +75,23 @@ router.get("/githubcallback", passport.authenticate("github"), (req, res) => {
 })
 
 
+//Cierre de Sesión:
+
+router.get("/logout", (req, res)=>{
+  try {
+      req.session.destroy((err) => {
+        if(err){
+          console.log("Error al cerrar la Sesión", err);
+        }else{
+          res.redirect("/login");
+        }
+      })
+  } catch (error) {
+    
+  }
+})
+
+
 // router.post('/jwtLogin', async (req, res) => {
 //   const { email, password } = req.body;
 //   let accessToken;
