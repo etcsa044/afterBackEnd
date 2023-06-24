@@ -35,7 +35,7 @@ const initializePassportStrategies = () => {
 
         let user;
 
-        if (email === "adminCoder@coder.com" && password === "coder123") {
+        if (email === "adminCoder@coder.com" && password === "adminCod3r123") {
             const user = {
                 id: 0,
                 name: `SuperAdmin`,
