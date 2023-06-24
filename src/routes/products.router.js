@@ -45,8 +45,6 @@ router.post("/", async (req, res) => {
 
     const products = await mongoPm.getProducts()
 
-    console.log(products.docs)
-
     const { title, description, category, thumbnail, code, price, stock, status } = req.body
 
     // validacion de campos completos

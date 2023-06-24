@@ -30,7 +30,6 @@ export const autoId = async (req, res, next)=>{
     }
     next()
 }
-
 //String de Conexión
 export const connection = "mongodb+srv://etcsa044:uCdeI4OXFqA9lN9Z@backendcluster.h3wtkp9.mongodb.net/ecommerce?retryWrites=true&w=majority"
 
@@ -50,6 +49,3 @@ export const createHash = async (password) => {
 export const validatePassword = (password, hashedPassword) => {
     return bcrypt.compare(password, hashedPassword)
 }
-
-
-//JWT
