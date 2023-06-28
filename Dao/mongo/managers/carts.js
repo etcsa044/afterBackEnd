@@ -25,10 +25,10 @@ export default class MongoCartManager {
     }
 
     addProductToCart = (id, pid) => {
-        return cartModel.updateOne({ _id: id }, { $push: { products: { product: new mongoose.Types.ObjectId(pid), quantity: 1 } } })
+        return cartModel.updateOne({ _id: id }, { $push: {products: { product: new mongoose.Types.ObjectId(pid), quantity: 1, cartId:id  } } })
     }
 
-    modifyQuantity = (cid, pid, quantity) => {
+    modifyQuantity = (cid, pid, quantity=0) => {
 
         if (!quantity) {
             return cartModel.findOneAndUpdate(
@@ -46,6 +46,13 @@ export default class MongoCartManager {
 
     removeProducts = (cid) => {
         return cartModel.findOneAndUpdate({ _id: cid }, { $set: { "products": [] } })
+    }
+
+    removeProduct = (cid, pid) => {
+        return cartModel.findOneAndUpdate(
+            { _id: cid },
+            { $pull: { products: { product: pid } } }
+        );
     }
 
 

@@ -12,8 +12,9 @@
     <p>{{this.product.description}}</p>
     <p>precio: ${{this.product.price}}</p>
     <p>cantidad {{this.quantity}}</p>
+    <p>carro {{this.cartId}}</p>
 
-  <a href="#">eliminar</a>
+  <a class="btn bg-primary mb-2 remove_btn" id="{{this.product._id}}" name="{{this.cartId}}">eliminar</a>
   </article>
   {{/each}}
 </section>

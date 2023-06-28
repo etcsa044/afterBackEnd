@@ -1,18 +1,27 @@
-window.addEventListener("load", function() {
-    const frm_eliminar = document.getElementsByClassName("frm_eliminar");
-// const input_eliminar = document.getElementsByClassName("input_eliminar");
-// const btn_eliminar = document.getElementsByClassName("btn_eliminar");
 
+    let remove_btn = document.getElementsByClassName("remove_btn");
+    remove_btn = Array.from(remove_btn);
 
-console.log(frm_eliminar)
-
-for(let i = 0; i <= frm_eliminar.length; i++){
-    frm_eliminar[i].addEventListener("submit", async (evt)=>{
+for(let i = 0; i <= remove_btn.length; i++){
+    remove_btn[i].addEventListener("click", async (evt)=>{
         evt.preventDefault();
-        console.log("hola")
+
+        const pid = remove_btn[i].id
+        const cid = remove_btn[i].name
+
+        const response = await fetch(`/api/carts/${cid}/product/${pid}`, {
+            method:"PUT",
+            headers:{
+                "Content-type":"aplication/json"
+            }
+        })
+
+        if(response.status === 200){
+            location.reload();
+        }
     })
 }
-  });
+
 
 
 

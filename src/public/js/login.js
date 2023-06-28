@@ -19,7 +19,6 @@ login_frm.addEventListener("submit", async evt => {
         
     })
         const responseData = await response.json();
-        console.log("aqui", responseData)
         if (responseData.status === "success"){
             window.location.replace("/products");
         }

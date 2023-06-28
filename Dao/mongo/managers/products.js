@@ -5,9 +5,14 @@ import productModel from "../models/products.js"
 
 export default class MongoProductManager {
 
-    getProducts = async (page=1, limit=0) => {
-        const products = await productModel.paginate({}, {page,limit, lean:true})
+    getProducts = async (page, limit) => {
+        const products = await productModel.paginate({}, {page,limit, lean:true});
         return products
+    }
+
+    getProductsWP = async () => {
+        const products = await productModel.find().lean();
+        return products;
     }
 
     getProductById = async (id) => {

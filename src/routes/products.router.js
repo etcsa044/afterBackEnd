@@ -17,7 +17,6 @@ const mongoPm = new MongoProductManager()
 router.get("/", async (req, res) => {
     try {
         const {limit, page} = req.query;
-        console.log(limit, page)
         const products = await mongoPm.getProducts(limit, page)
         res.send({ status: "success", payload: products})
     } catch (error) {
@@ -43,7 +42,7 @@ router.get("/:pid", async (req, res) => {
 
 router.post("/", async (req, res) => {
 
-    const products = await mongoPm.getProducts()
+    const products = await mongoPm.getProductsWP();
 
     const { title, description, category, thumbnail, code, price, stock, status } = req.body
 
@@ -64,10 +63,7 @@ router.post("/", async (req, res) => {
     }
 
     //validación de "code" existente:
-
-    const validationCode = products.docs.some(e => e.code === product.code);
-
-    console.log(validationCode)
+    const validationCode = products.some(e => e.code === product.code);
 
     if (validationCode) {
         res.send({

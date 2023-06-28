@@ -13,10 +13,13 @@
             </p>
             <p>$ {{this.price}}</p>
 
-            <form class="add_frm">
+            {{!-- <a class="btn btn-primary" type="submit" value="Agregar al Carrito"> --}}
+                <a href="" id="{{this._id}}" class="add_frm btn btn-primary">agregar</a>
+
+            {{!-- <form class="add_frm">
                 <input type="text" name="id" value="{{this._id}}" hidden="true">
                 <input class="btn btn-primary" type="submit" value="Agregar al Carrito">
-            </form>
+            </form> --}}
 
         </article>
     </li>

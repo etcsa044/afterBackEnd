@@ -1,6 +1,7 @@
 import e, { Router } from "express";
 import MongoCartManager from "../../Dao/mongo/managers/carts.js";
 import MongoProductManager from "../../Dao/mongo/managers/products.js";
+import cartModel from "../../Dao/mongo/models/cart.js";
 
 const router = Router();
 const cartManager = new MongoCartManager()
@@ -53,23 +54,20 @@ router.put("/:cid", async (req, res) => {
     }
 })
 
-// router.delete("/:cid", async (req, res) => {
-//     const { cid } = req.params;
-//     try {
-
-//         const result = await cartManager.deleteCart(cid)
-//         res.sendStatus(200)
-//     } catch (error) {
-//         res.send({ status: "Error", error: "Cart NOT found" })
-//     }
-
-// })
+router.put("/:cid/product/:pid", async (req, res) => {
+    const {cid, pid} = req.params;
+    try {
+         await cartManager.removeProduct(cid, pid);
+    res.sendStatus(200);
+    } catch (error) {
+        res.sendStatus(400)
+    }
+})
 
 router.put("/:cid/products/:pid", async (req, res) => {
 
     const { pid, cid } = req.params;
-    const {quantity} = req.body
-    console.log(req.params)
+    const {quantity} = req.body;
     const productId = await pm.getProductById(pid);
     const cart = await cartManager.updateCart(cid);
 
@@ -102,6 +100,5 @@ router.delete("/:cid", async (req, res) =>{
     }
 
 })
-
 
 export default router;
